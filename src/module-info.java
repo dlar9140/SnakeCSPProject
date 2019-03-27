@@ -7,4 +7,5 @@
  */
 module SnakeCSPProject
 {
+	requires java.desktop;
 }
