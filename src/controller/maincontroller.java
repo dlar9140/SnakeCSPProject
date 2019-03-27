@@ -7,10 +7,11 @@ public class maincontroller
 	{
 		JFrame frame = new JFrame();
 		
+		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setTitle("Snake Game");
+		
 		frame.pack();
-		
-		
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_COURSE);
+		frame.setVisible(true);
 	}
 
 public static void main(String[] args) {
