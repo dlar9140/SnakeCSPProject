@@ -9,6 +9,7 @@ public class maincontroller
 		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Snake Game");
+		frame.setLocationRelativeTo(null);
 		
 		frame.pack();
 		frame.setVisible(true);
