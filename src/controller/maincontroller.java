@@ -12,7 +12,6 @@ public class maincontroller
 		Gamepanel gamepanel = new Gamepanel();
 		
 		
-		
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setTitle("Snake Game");
 		frame.setLocationRelativeTo(null);
