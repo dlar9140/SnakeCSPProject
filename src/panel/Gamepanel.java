@@ -19,16 +19,20 @@ public class Gamepanel extends JPanel implements Runnable{
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
 	}
 	
-	public void start() {
+	public void start() 
+	{
 		
 	}
-	public void stop() {
+	public void stop() 
+	{
 		
 	}
-	public void tick() {
+	public void tick() 
+	{
 		
 	}
-	public void paint(Graphics g) {
+	public void paint(Graphics g) 
+	{
 		
 	}
 
