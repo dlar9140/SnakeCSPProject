@@ -1,4 +1,5 @@
 package panel;
+import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
 
@@ -33,9 +34,19 @@ public class Gamepanel extends JPanel implements Runnable{
 	}
 	public void paint(Graphics g) 
 	{
+		g.clearRect(0,  0,  WIDTH, HEIGHT);
+		
+		g.setColor(Color.BLACK);
+		g.fillRect(0,  0,  WIDTH, HEIGHT);
+		
+		
 		for(int i = 0 ; i < WIDTH/10 ; i++)
 		{
-			g.drawLine(i * 10, 0, 1 *10, HEIGHT);
+			g.drawLine(i * 10, 0, i * 10, HEIGHT);
+		}
+		for(int i = 0 ; i < HEIGHT/10 ; i++)
+		{
+			g.drawLine(0, i * 10, HEIGHT, i * 10);
 		}
 	}
 
