@@ -50,7 +50,7 @@ public class Gamepanel extends JPanel implements Runnable{
 	}
 	public void paint(Graphics g) 
 	{
-		g.clearRect(0,  0,  WIDTH, HEIGHT);
+		g.clearRect(0, 0, WIDTH, HEIGHT);
 		
 		g.setColor(Color.BLACK);
 		g.fillRect(0,  0,  WIDTH, HEIGHT);
