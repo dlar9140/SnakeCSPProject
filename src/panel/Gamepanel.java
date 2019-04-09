@@ -13,6 +13,10 @@ public class Gamepanel extends JPanel implements Runnable{
 	
 	public static final int WIDTH = 500, HEIGHT = 500;
 	
+	private Thread thread;
+	
+	private boolean running;
+	
 
 
 	public Gamepanel() {
@@ -22,11 +26,23 @@ public class Gamepanel extends JPanel implements Runnable{
 	
 	public void start() 
 	{
+		running = true;
+		thread = new Thread(this);
+		thread.start();
 		
 	}
 	public void stop() 
 	{
-		
+		running = false;
+		try
+		{
+			thread.join();
+		}
+		catch (InterruptedException e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public void tick() 
 	{
@@ -53,8 +69,11 @@ public class Gamepanel extends JPanel implements Runnable{
 	@Override
 	public void run()
 	{
-		// TODO Auto-generated method stub
-		
+		while(running)
+		{
+			tick();
+			repaint();
+		}
 	}
 
 }
