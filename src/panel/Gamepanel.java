@@ -35,7 +35,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	
 	private Random r;
 	
-	private int xCoor = 10, yCoor = 10, size = 5;
+	private int xCoor = 10, yCoor = 10, size = 15;
 	private int ticks = 0;
 
 	public Gamepanel() 
@@ -98,6 +98,44 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 				snake.remove(0);
 			}
 		}
+		
+		if(dots.size() ==0) 
+		{
+			int xCoor = r.nextInt(49);
+			int yCoor = r.nextInt(49);
+			
+			dot = new Dot(xCoor, yCoor, 10);
+			dots.add(dot);
+		}
+		
+		for(int i = 0 ; i < dots.size() ; i++)
+		{
+			if(xCoor == dots.get(i).getxCoor() && yCoor == dots.get(i).getyCoor())
+			{
+				size++;
+				dots.remove(i);
+				i++;
+			}
+		}
+		//collision on snake part
+		for(int i = 0 ; i < snake.size() ; i++)
+		{
+			if(xCoor == snake.get(i).getxCoor() && yCoor == snake.get(i).getyCoor()) 
+			{
+				if(i != snake.size()-1)
+				{
+					System.out.println("Game Over");
+					stop();
+				}
+			}
+		}
+		
+		//collision on boarder
+		if(xCoor < 0 || xCoor > 49 || yCoor > 49)
+		{
+			System.out.println("Game Over");
+			stop();
+		}
 	}
 	public void paint(Graphics g) 
 	{
@@ -118,6 +156,10 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		for(int i = 0 ; i < snake.size() ; i++)
 		{
 			snake.get(i).draw(g);
+		}
+		for(int i = 0 ; i < dots.size(); i++)
+		{
+			dots.get(i).draw(g);
 		}
 	}
 
