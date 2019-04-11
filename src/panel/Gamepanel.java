@@ -31,9 +31,12 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	private int xCoor = 10, yCoor = 10, size = 5;
 	private int ticks = 0;
 
-	public Gamepanel() {
+	public Gamepanel() 
+	{
+		setFocusable(true);
 		
 		setPreferredSize(new Dimension(WIDTH, HEIGHT));
+		addKeyListener(this);
 		
 		snake = new ArrayList<Snakemodel>();
 		
