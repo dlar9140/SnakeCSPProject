@@ -5,11 +5,13 @@ import java.awt.Graphics;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
+import java.util.Random;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Model.Snakemodel;
+import dot.Dot;
 
 public class Gamepanel extends JPanel implements Runnable, KeyListener
 {
@@ -28,6 +30,11 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	private Snakemodel b;
 	private ArrayList<Snakemodel> snake;
 	
+	private Dot dot;
+	private ArrayList<Dot> dots;
+	
+	private Random r;
+	
 	private int xCoor = 10, yCoor = 10, size = 5;
 	private int ticks = 0;
 
@@ -39,6 +46,9 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		addKeyListener(this);
 		
 		snake = new ArrayList<Snakemodel>();
+		dots = new ArrayList<Dot>();
+		
+		r = new Random();
 		
 		start();
 	}
