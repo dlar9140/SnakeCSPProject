@@ -65,7 +65,23 @@ public class Gamepanel extends JPanel implements Runnable{
 			snake.add(b);
 		}
 		ticks++;
-		
+		if(ticks > 250000)
+		{
+			if(right) xCoor++;
+			if(left) yCoor--;
+			if(up) yCoor--;
+			if(down) yCoor++;
+			
+			ticks = 0;
+			
+			b = new Snakemodel(xCoor, yCoor, 10);
+			snake.add(b);
+			
+			if(snake.size() > size)
+			{
+				snake.remove(0);
+			}
+		}
 	}
 	public void paint(Graphics g) 
 	{
