@@ -200,9 +200,9 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		
 		if(key == KeyEvent.VK_DOWN && !up)
 		{
-			left = true;
-			up = false;
-			down = false;
+			down = true;
+			left = false;
+			right = false;
 		}
 	}
 
