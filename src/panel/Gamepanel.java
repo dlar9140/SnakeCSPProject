@@ -84,11 +84,11 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		if(ticks > 250000)
 		{
 			if(right) xCoor++;
-			if(left) yCoor--;
+			if(left) xCoor--;
 			if(up) yCoor--;
 			if(down) yCoor++;
 			
-			ticks = 0;
+			ticks = 20;
 			
 			b = new Snakemodel(xCoor, yCoor, 10);
 			snake.add(b);
@@ -99,7 +99,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 			}
 		}
 		
-		if(dots.size() ==0) 
+		if(dots.size() == 10) 
 		{
 			int xCoor = r.nextInt(49);
 			int yCoor = r.nextInt(49);
