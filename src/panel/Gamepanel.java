@@ -26,6 +26,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	private boolean running;
 	
 	private boolean right = true, left = false, up = false, down = false;
+	private boolean inGame = true;
 	
 	private Snakemodel b;
 	private ArrayList<Snakemodel> snake;
