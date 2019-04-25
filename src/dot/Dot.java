@@ -7,7 +7,7 @@ public class Dot
 {
 	private int xCoor, yCoor, width, height;
 	
-	public Dot(int xCoor, int titleSize, int i)
+	public Dot(int xCoor, int titleSize, int i, int yCoor)
 	{
 		this.xCoor = xCoor;
 		this.yCoor = yCoor;

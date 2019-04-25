@@ -2,6 +2,7 @@ package panel;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 import java.util.ArrayList;
@@ -25,7 +26,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	
 	private boolean running;
 	
-	private boolean right = true, left = false, up = false, down = false;
+	private boolean rightDirection = true, leftDirection = false, upDirection = false, downDirection = false;
 	private boolean inGame = true;
 	
 	private Snakemodel b;
@@ -84,10 +85,10 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		ticks++;
 		if(ticks > 250000)
 		{
-			if(right) xCoor++;
-			if(left) xCoor--;
-			if(up) yCoor--;
-			if(down) yCoor++;
+			if(rightDirection) xCoor++;
+			if(leftDirection) xCoor--;
+			if(upDirection) yCoor++;
+			if(downDirection) yCoor--;
 			
 			ticks = 20;
 			
@@ -105,7 +106,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 			int xCoor = r.nextInt(49);
 			int yCoor = r.nextInt(49);
 			
-			dot = new Dot(xCoor, yCoor, 10);
+			dot = new Dot(xCoor, yCoor, 10, yCoor);
 			dots.add(dot);
 		}
 		
@@ -174,51 +175,62 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		}
 	}
 
+    private class TAdapter extends KeyAdapter {
+
+        @Override
+        public void keyPressed(KeyEvent e) {
+
+            int key = e.getKeyCode();
+
+            if ((key == KeyEvent.VK_LEFT) && (!rightDirection)) {
+                leftDirection = true;
+                upDirection = false;
+                downDirection = false;
+            }
+
+            if ((key == KeyEvent.VK_RIGHT) && (!leftDirection)) {
+                rightDirection = true;
+                upDirection = false;
+                downDirection = false;
+            }
+
+            if ((key == KeyEvent.VK_UP) && (!downDirection)) {
+                upDirection = true;
+                rightDirection = false;
+                leftDirection = false;
+            }
+
+            if ((key == KeyEvent.VK_DOWN) && (!upDirection)) {
+                downDirection = true;
+                rightDirection = false;
+                leftDirection = false;
+            }
+        }
+    }
+
 	@Override
 	public void keyTyped(KeyEvent e)
 	{
-		int key = e.getKeyCode();
-		if(key == KeyEvent.VK_RIGHT && !left)
-		{
-			right = true;
-			up = false;
-			down = false;
-		}
+		// TODO Auto-generated method stub
 		
-		if(key == KeyEvent.VK_LEFT && !right)
-		{
-			left = true;
-			 up = false;
-			down = false;
-		}
-		
-		if(key == KeyEvent.VK_UP && !down)
-		{
-			up = true;
-			left = false;
-			right = false;
-		}
-		
-		if(key == KeyEvent.VK_DOWN && !up)
-		{
-			down = true;
-			left = false;
-			right = false;
-		}
 	}
 
 	@Override
 	public void keyPressed(KeyEvent e)
 	{
-		
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void keyReleased(KeyEvent e)
 	{
-		
+		// TODO Auto-generated method stub
 		
 	}
-
 }
+
+
+
+
+
