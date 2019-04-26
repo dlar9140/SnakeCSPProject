@@ -1,6 +1,5 @@
 package controller;
 import java.awt.Component;
-
 import javax.swing.JFrame;
 import panel.Gamepanel;
 

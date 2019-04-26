@@ -8,7 +8,6 @@ import java.awt.event.KeyListener;
 import java.util.ArrayList;
 import java.util.Random;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import Model.Snakemodel;
@@ -49,6 +48,7 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 		
 		snake = new ArrayList<Snakemodel>();
 		dots = new ArrayList<Dot>();
+	
 		
 		r = new Random();
 		
@@ -101,12 +101,12 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 			}
 		}
 		
-		if(dots.size() == 10) 
+		if(dots.size() ==10) 
 		{
 			int xCoor = r.nextInt(49);
 			int yCoor = r.nextInt(49);
 			
-			dot = new Dot(xCoor, yCoor, 10, yCoor);
+			dot = new Dot(xCoor, yCoor, 10);
 			dots.add(dot);
 		}
 		
@@ -174,6 +174,8 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 			repaint();
 		}
 	}
+	
+	
 
     private class TAdapter extends KeyAdapter {
 
@@ -227,6 +229,16 @@ public class Gamepanel extends JPanel implements Runnable, KeyListener
 	{
 		// TODO Auto-generated method stub
 		
+	}
+
+	public boolean isInGame()
+	{
+		return inGame;
+	}
+
+	public void setInGame(boolean inGame)
+	{
+		this.inGame = inGame;
 	}
 }
 
